@@ -1,0 +1,10 @@
+node_modules
+dbdata
+yarn-error.log
+.env
+auth0/token.json
+*.log
+**/*.log
+tmp
+dump.rdb
+error.log
