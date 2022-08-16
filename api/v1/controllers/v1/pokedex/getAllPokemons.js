@@ -13,11 +13,6 @@ const matchArrayAllValues = (queryArray, storedArray) => {
 
 const matchArrayValues = (queryArray, storedArray) => {
   const storedArrayAsObj = R.zipObj(storedArray, truer(storedArray));
-  console.log(
-    queryArray,
-    storedArrayAsObj,
-    R.pick(queryArray, storedArrayAsObj)
-  );
   return Object.keys(R.pick(queryArray, storedArrayAsObj) || {}).length;
 };
 
@@ -28,15 +23,12 @@ module.exports = ({ name, types, weaknesses }) => {
         if (!pokeName.toLowerCase().includes((name || "").toLowerCase())) {
           return true;
         }
-        console.log("paso nombre", name);
         if (types && !matchArrayAllValues(types, pokeTypes)) {
           return true;
         }
-        console.log("paso tipos", types);
         if (weaknesses && !matchArrayValues(weaknesses, pokeWeaknesses)) {
           return true;
         }
-        console.log("paso debilidades", weaknesses);
       }
     )
   );
